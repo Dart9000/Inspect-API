@@ -2,7 +2,6 @@ import base64
 import json
 import requests
 import os
-import time
 from dotenv import load_dotenv
 load_dotenv()
 Headers=(os.getenv('User'),os.getenv('token'))
@@ -27,8 +26,7 @@ def Analysis(url):
   return {'start':timeline[-1],'end':timeline[0],'stats':dates,'span': span}
 
 def read(url):
-    r = requests.get(url)
-    time.sleep(0.4)
+    r = requests.get(url,auth=Headers)
     r.raise_for_status()
     data = r.json()
     file_content = data['content']
@@ -41,7 +39,6 @@ def read(url):
 
 def assets(URL):
   r = requests.get(url = URL,auth=Headers)
-  time.sleep(0.4)
   data = r.json()
   res=[]
   valid=['py','js','html','css']
