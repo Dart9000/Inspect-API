@@ -22,6 +22,11 @@ def compare():
     url2=request.args.get('url2')
     return api.Compare(url1,url2)
 
+# compare-routes
+@app.route('/rate')
+def rate():
+    return api.Rate()
+
 
 # init
 if __name__ == '__main__':

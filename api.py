@@ -71,3 +71,9 @@ def Compare(url1,url2):
       matched+=1
   total=len(repo1)+len(repo2)
   return { 'score' : matched/total }
+  
+def Rate():
+  URL = "https://api.github.com/rate_limit"
+  r = requests.get(url = URL,auth=Headers)
+  data = r.json()
+  return data 
