@@ -2,6 +2,7 @@ import base64
 import json
 import requests
 import os
+import time
 from dotenv import load_dotenv
 load_dotenv()
 Headers=(os.getenv('User'),os.getenv('token'))
@@ -39,6 +40,7 @@ def read(url):
 
 def assets(URL):
   r = requests.get(url = URL,auth=Headers)
+  time.sleep(0.5)
   data = r.json()
   res=[]
   valid=['py','js','html','css']
