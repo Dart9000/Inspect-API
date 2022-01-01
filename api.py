@@ -28,6 +28,7 @@ def Analysis(url):
 
 def read(url):
     r = requests.get(url)
+    time.sleep(0.4)
     r.raise_for_status()
     data = r.json()
     file_content = data['content']
@@ -40,7 +41,7 @@ def read(url):
 
 def assets(URL):
   r = requests.get(url = URL,auth=Headers)
-  time.sleep(0.5)
+  time.sleep(0.4)
   data = r.json()
   res=[]
   valid=['py','js','html','css']
