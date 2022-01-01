@@ -23,7 +23,7 @@ def Analysis(url):
   a=[int(i) for i in timeline[-1].split('-')]
   b=[int(i) for i in timeline[0].split('-')]
   span=(b[0]-a[0])*365+(b[1]-a[1])*30+(b[2]-a[2])+1
-  return {'start':timeline[-1],'end':timeline[0],'stats':dates,'span': span}
+  return {start:timeline[-1], end:timeline[0], stats:dates, span: span}
 
 def read(url):
     r = requests.get(url,auth=Headers)
