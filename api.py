@@ -2,6 +2,7 @@ import base64
 import json
 import requests
 import os
+from datetime import date
 from dotenv import load_dotenv
 load_dotenv()
 Headers=(os.getenv('User'),os.getenv('token'))
@@ -22,8 +23,10 @@ def Analysis(url):
       dates[key]+=1
   a=[int(i) for i in timeline[-1].split('-')]
   b=[int(i) for i in timeline[0].split('-')]
-  span=(b[0]-a[0])*365+(b[1]-a[1])*30+(b[2]-a[2])+1
-  return {'start':timeline[-1], 'end':timeline[0], 'stats':dates, 'span': span}
+  d0 = date(a[0], a[1], a[2])
+  d1 = date(b[0], b[1], b[2])
+  delta = d1 - d0
+  return {'start':timeline[-1], 'end':timeline[0], 'stats':dates, 'span': delta.days}
 
 def read(url):
     r = requests.get(url,auth=Headers)
