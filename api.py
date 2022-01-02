@@ -26,7 +26,7 @@ def Analysis(url):
   d0 = date(a[0], a[1], a[2])
   d1 = date(b[0], b[1], b[2])
   delta = d1 - d0
-  return {'start':timeline[-1], 'end':timeline[0], 'stats':dates, 'span': delta.days}
+  return {'start':timeline[-1], 'end':timeline[0], 'stats':dates, 'span': delta.days+1}
 
 def read(url):
     r = requests.get(url,auth=Headers)
