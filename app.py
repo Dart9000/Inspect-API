@@ -1,7 +1,10 @@
 from flask import Flask, request
+from flask_cors import CORS
 import api
 
 app = Flask(__name__)
+CORS(app)
+
 
 # To run python file without re-running the flask command
 def before_request():
